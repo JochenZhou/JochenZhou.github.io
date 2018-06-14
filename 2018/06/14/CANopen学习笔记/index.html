@@ -9,13 +9,14 @@
   <title>CANopen学习笔记 | Pick Code</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="0x01 代码移植参考 http://bbs.21ic.com/icview-878522-1-1.html的移植教程（下面统称原教程），其教程还包括STM32的CAN以及TIM的驱动，不过截止写笔记的2018年2月7日在GitHub上的Canfestival-master最新版本已经有cm0/cm3/cm4系列的驱动代码，所以如果下载最新版本，只移植协议就可以，参考原教程，修改为以下步骤：接下来">
+<meta name="keywords" content="STM32,CANopen,Canfestival">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CANopen学习笔记">
 <meta property="og:url" content="http://yoursite.com/2018/06/14/CANopen学习笔记/index.html">
 <meta property="og:site_name" content="Pick Code">
 <meta property="og:description" content="0x01 代码移植参考 http://bbs.21ic.com/icview-878522-1-1.html的移植教程（下面统称原教程），其教程还包括STM32的CAN以及TIM的驱动，不过截止写笔记的2018年2月7日在GitHub上的Canfestival-master最新版本已经有cm0/cm3/cm4系列的驱动代码，所以如果下载最新版本，只移植协议就可以，参考原教程，修改为以下步骤：接下来">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-14T04:47:50.216Z">
+<meta property="og:updated_time" content="2018-06-14T15:26:54.183Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CANopen学习笔记">
 <meta name="twitter:description" content="0x01 代码移植参考 http://bbs.21ic.com/icview-878522-1-1.html的移植教程（下面统称原教程），其教程还包括STM32的CAN以及TIM的驱动，不过截止写笔记的2018年2月7日在GitHub上的Canfestival-master最新版本已经有cm0/cm3/cm4系列的驱动代码，所以如果下载最新版本，只移植协议就可以，参考原教程，修改为以下步骤：接下来">
@@ -43,11 +44,11 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #ffffff"></div>
+<div class="overlay" style="background: #4d4d4d"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/assets/img/logo.png" class="js-avatar">
+			<img src="/assets/img/logo1.png" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">JochenZhou</a></h1>
@@ -98,14 +99,14 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #ffffff"></div>
+  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/assets/img/logo.png" class="js-avatar">
+				<img src="/assets/img/logo1.png" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">JochenZhou</h1>
@@ -177,6 +178,9 @@
         <h2 id="0x01-代码移植"><a href="#0x01-代码移植" class="headerlink" title="0x01 代码移植"></a>0x01 代码移植</h2><p>参考 <a href="http://bbs.21ic.com/icview-878522-1-1.html" target="_blank" rel="noopener">http://bbs.21ic.com/icview-878522-1-1.html</a>的移植教程（下面统称原教程），其教程还包括STM32的CAN以及TIM的驱动，不过截止写笔记的2018年2月7日在GitHub上的Canfestival-master最新版本已经有cm0/cm3/cm4系列的驱动代码，所以如果下载最新版本，只移植协议就可以，参考原教程，修改为以下步骤：<br><br><br>接下来开始移植：</p>
 <ul>
 <li>步骤一：在工程目录下新建文件夹CanFestival，再在CanFestival下新建文件夹driver、inc和src，再在inc文件夹下面新建stm32文件夹（我这里主要以移植到stm32为例说明，如果是移植到VC或其他平台下，这里也可以命名为其他名字，如vc）。</li>
+</ul>
+<a id="more"></a>
+<ul>
 <li>步骤二：将下载下来的CanFestival-master\src目录下的dcf.c、emcy.c、lifegrd.c、lss.c、nmtMaster.c、nmtSlave.c、objacces.c、pdo.c、sdo.c、states.c、sync.c、timer.c共12个文件拷贝到CanFestival\src目录下；将CanFestival-master\include目录下的所有.h文件共19个文件全部拷贝到CanFestival\inc目录下，再把CanFestival-master\examples\AVR\Slave目录下的ObjDict.h文件拷贝过来，一共20个；将CanFestival-master\include\AVR目录下的applicfg.h、canfestival.h、config.h、timerscfg.h共4个头文件拷贝到canfestival\inc\stm32目录下；将CanFestival-master\drivers\cm0目录下的拷贝到canfestival\driver目录下，并在该目录下新建stm32_canfestival.c文件。</li>
 <li>步骤三：将CanFestival\src目录下的所有.c文件添加到工程；将canfestival\driver目录下的stm32_canfestival.c文件添加到工程；</li>
 <li>步骤四：将文件目录canfestival\inc、canfestival\inc\stm32、canfestival\driver等路径添加到工程包含路径。</li>
@@ -237,6 +241,25 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">STM32</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CANopen</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Canfestival</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -311,11 +334,6 @@
     </a>
   
   
-    <a href="/2018/06/14/article-title/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">article title</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
 </nav>
 
 
@@ -366,7 +384,7 @@
 var gitment = new Gitment({
   id: "http://yoursite.com/2018/06/14/CANopen学习笔记/",
   owner: 'jochenzhou',
-  repo: 'jochenzhou.github.io/',
+  repo: 'jochenzhou.github.io',
   oauth: {
     client_id: 'd56a48b19f96a2f65584',
     client_secret: 'bb9e01d0dcb5ddfab18e5b025855f6d4cef1d2f5',
@@ -468,6 +486,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">STM32</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">CANopen</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Canfestival</a>
               </li>
             
             <div class="clearfix"></div>
