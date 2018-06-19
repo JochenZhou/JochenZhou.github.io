@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Pick Code</title>
+  <title>解决STM32不接串口一直重启 | Pick Code</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A amateur Blog.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Pick Code">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="今天调试板子的时候一直接着串口调试，之后程序差不多调好了后把串口拔了下来整体调试，然后问题就出现了，程序一个劲的重启，接上Jlink调试发现执行串口每次发送后程序就重启了，每次都是这样，调试了很长时间也没有结果，之后让老师傅过来帮忙。    结果问题出现在串口初始化上，我串口初始化函数使能了接受中断，但是我没有写串口的中断函数，RXD应该死在接收中断上了，真是太大意了！ 不过一般规范地写都会定义一">
+<meta name="keywords" content="STM32">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决STM32不接串口一直重启">
+<meta property="og:url" content="http://yoursite.com/2018/06/19/解决STM32不接串口一直重启/index.html">
 <meta property="og:site_name" content="Pick Code">
-<meta property="og:description" content="A amateur Blog.">
+<meta property="og:description" content="今天调试板子的时候一直接着串口调试，之后程序差不多调好了后把串口拔了下来整体调试，然后问题就出现了，程序一个劲的重启，接上Jlink调试发现执行串口每次发送后程序就重启了，每次都是这样，调试了很长时间也没有结果，之后让老师傅过来帮忙。    结果问题出现在串口初始化上，我串口初始化函数使能了接受中断，但是我没有写串口的中断函数，RXD应该死在接收中断上了，真是太大意了！ 不过一般规范地写都会定义一">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-06-19T16:02:18.297Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pick Code">
-<meta name="twitter:description" content="A amateur Blog.">
+<meta name="twitter:title" content="解决STM32不接串口一直重启">
+<meta name="twitter:description" content="今天调试板子的时候一直接着串口调试，之后程序差不多调好了后把串口拔了下来整体调试，然后问题就出现了，程序一个劲的重启，接上Jlink调试发现执行串口每次发送后程序就重启了，每次都是这样，调试了很长时间也没有结果，之后让老师傅过来帮忙。    结果问题出现在串口初始化上，我串口初始化函数使能了接受中断，但是我没有写串口的中断函数，RXD应该死在接收中断上了，真是太大意了！ 不过一般规范地写都会定义一">
   
     <link rel="alternative" href="/atom.xml" title="Pick Code" type="application/atom+xml">
   
@@ -163,16 +165,14 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-解决STM32不接串口一直重启" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-解决STM32不接串口一直重启" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/19/解决STM32不接串口一直重启/">解决STM32不接串口一直重启</a>
+    <h1 class="article-title" itemprop="name">
+      解决STM32不接串口一直重启
     </h1>
   
 
@@ -210,16 +210,75 @@ var _hmt = _hmt || [];
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/19/解决STM32不接串口一直重启/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/19/解决STM32不接串口一直重启/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/06/17/6月17日1点31想写东西有感/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">6月17日1点31想写东西有感</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -234,251 +293,48 @@ var _hmt = _hmt || [];
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-6月17日1点31想写东西有感" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/17/6月17日1点31想写东西有感/">6月17日1点31想写东西有感</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/17/6月17日1点31想写东西有感/" class="archive-article-date">
-  	<time datetime="2018-06-16T17:33:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>  <strong>不读书，不经历，想破脑子也写不出东西的</strong>  </p>
-</blockquote>
-<p>这个星期马上又要过去了，微信读书只看了几分钟。曾几何时心中还呐喊着:身体和灵魂，总要有一个要在路上。而此刻却凌晨熬夜反思自己。反思有用是不可能的，可能只是不想睡觉罢了。而不想睡觉可能是不想醒来，不想醒来是因为白天面对现实的自己很孤独而卑微，行走在世上放不开自己，跟外界的交流越来越少，越来越想逃避。白天面对谁都变得无话可说，晚上疲惫的头痛也不愿闭上眼睛睡觉，我想我是生病了。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/17/6月17日1点31想写东西有感/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#因此以后一定要注意"><span class="toc-number">1.</span> <span class="toc-text">因此以后一定要注意</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#不写接收中断函数的串口就不要初始化使能接收中断！！！"><span class="toc-number">1.1.</span> <span class="toc-text">不写接收中断函数的串口就不要初始化使能接收中断！！！</span></a></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
   
-    <article id="post-第一篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/14/第一篇/">第一篇随笔</a>
-    </h1>
   
 
-        
-        <a href="/2018/06/14/第一篇/" class="archive-article-date">
-  	<time datetime="2018-06-14T04:33:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>中午放弃休息时间鼓捣这玩意，希望下午别崩。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/14/第一篇/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CANopen学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/14/CANopen学习笔记/">CANopen学习笔记</a>
-    </h1>
   
 
-        
-        <a href="/2018/06/14/CANopen学习笔记/" class="archive-article-date">
-  	<time datetime="2018-06-13T18:11:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="0x01-代码移植"><a href="#0x01-代码移植" class="headerlink" title="0x01 代码移植"></a>0x01 代码移植</h2><p>参考 <a href="http://bbs.21ic.com/icview-878522-1-1.html" target="_blank" rel="noopener">http://bbs.21ic.com/icview-878522-1-1.html</a>的移植教程（下面统称原教程），其教程还包括STM32的CAN以及TIM的驱动，不过截止写笔记的2018年2月7日在GitHub上的Canfestival-master最新版本已经有cm0/cm3/cm4系列的驱动代码，所以如果下载最新版本，只移植协议就可以，参考原教程，修改为以下步骤：<br><br><br>接下来开始移植：</p>
-<ul>
-<li>步骤一：在工程目录下新建文件夹CanFestival，再在CanFestival下新建文件夹driver、inc和src，再在inc文件夹下面新建stm32文件夹（我这里主要以移植到stm32为例说明，如果是移植到VC或其他平台下，这里也可以命名为其他名字，如vc）。</li>
-</ul>
-        
-          <a class="article-more-a" href="/2018/06/14/CANopen学习笔记/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">STM32</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CANopen</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Canfestival</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/14/CANopen学习笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
+  
 
   
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://yoursite.com/2018/06/19/解决STM32不接串口一直重启/",
+  owner: 'jochenzhou',
+  repo: 'jochenzhou.github.io',
+  oauth: {
+    client_id: 'd56a48b19f96a2f65584',
+    client_secret: 'bb9e01d0dcb5ddfab18e5b025855f6d4cef1d2f5',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
@@ -511,8 +367,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
