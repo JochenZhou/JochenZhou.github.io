@@ -72,6 +72,8 @@ var _hmt = _hmt || [];
 	        
 				<li><a href="/tags/随笔/">随笔</a></li>
 	        
+				<li><a href="/tags/STM32">STM32</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -128,6 +130,8 @@ var _hmt = _hmt || [];
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -143,12 +147,14 @@ var _hmt = _hmt || [];
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/tags/STM32">STM32</a></li>
 		        
 				</ul>
 			</nav>
@@ -164,6 +170,83 @@ var _hmt = _hmt || [];
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-过好自己的生活" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/24/过好自己的生活/">过好自己的生活</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/24/过好自己的生活/" class="archive-article-date">
+  	<time datetime="2018-06-24T07:36:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="摘自即刻APP-主题《奇葩聊天截图》"><a href="#摘自即刻APP-主题《奇葩聊天截图》" class="headerlink" title="摘自即刻APP-主题《奇葩聊天截图》"></a>摘自即刻APP-主题《奇葩聊天截图》</h5><blockquote>
+<p> 这世间没有任何两片纹理一样的树叶，同理，幸福与幸福也不尽相同，没有一个人的生活会和别人重复。我们在仰望别人的同时，别人也是以同样的姿态回望我们。没有谁的生活值得羡慕，过好自己的日子才是重中之重。</p>
+        
+          <a class="article-more-a" href="/2018/06/24/过好自己的生活/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/24/过好自己的生活/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-解决STM32不接串口一直重启" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -187,7 +270,7 @@ var _hmt = _hmt || [];
       
         <p>今天调试板子的时候一直接着串口调试，之后程序差不多调好了后把串口拔了下来整体调试，然后问题就出现了，程序一个劲的重启，接上Jlink调试发现执行串口每次发送后程序就重启了，每次都是这样，调试了很长时间也没有结果，之后让老师傅过来帮忙。  </p>
 <p> 结果问题出现在串口初始化上，我串口初始化函数使能了接受中断，但是我没有写串口的中断函数，RXD应该死在接收中断上了，真是太大意了！</p>
-<p>不过一般规范地写都会定义一个使能标志位，然后像下面那样判断是否定义了使能为 1，才编译开启中断的代码<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> USART2_RX_EN		  	<span class="comment">//如果使能了接收</span></span></span><br><span class="line">	<span class="comment">//使能接收中断</span></span><br><span class="line">  USART_ITConfig(USART2, USART_IT_RXNE, ENABLE);<span class="comment">//开启中断   </span></span><br><span class="line">	</span><br><span class="line">	NVIC_InitStructure.NVIC_IRQChannel = USART2_IRQn;</span><br><span class="line">	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority=<span class="number">2</span> ;<span class="comment">//抢占优先级3</span></span><br><span class="line">	NVIC_InitStructure.NVIC_IRQChannelSubPriority = <span class="number">3</span>;		<span class="comment">//子优先级3</span></span><br><span class="line">	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;			<span class="comment">//IRQ通道使能</span></span><br><span class="line">	NVIC_Init(&amp;NVIC_InitStructure);	<span class="comment">//根据指定的参数初始化NVIC寄存器</span></span><br><span class="line">	TIM4_Init(<span class="number">999</span>,<span class="number">7199</span>);		<span class="comment">//10ms中断</span></span><br><span class="line">	USART2_RX_STA=<span class="number">0</span>;		<span class="comment">//清零</span></span><br><span class="line">	TIM4_Set(<span class="number">0</span>);			<span class="comment">//关闭定时器4</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure></p>
+<p>不过一般规范地写都会定义一个使能标志位，然后像下面那样判断是否定义了使能为 1<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> USART2_RX_EN		  	<span class="comment">//如果使能了接收</span></span></span><br><span class="line">	<span class="comment">//使能接收中断</span></span><br><span class="line">  USART_ITConfig(USART2, USART_IT_RXNE, ENABLE);<span class="comment">//开启中断   </span></span><br><span class="line">	</span><br><span class="line">	NVIC_InitStructure.NVIC_IRQChannel = USART2_IRQn;</span><br><span class="line">	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority=<span class="number">2</span> ;<span class="comment">//抢占优先级3</span></span><br><span class="line">	NVIC_InitStructure.NVIC_IRQChannelSubPriority = <span class="number">3</span>;		<span class="comment">//子优先级3</span></span><br><span class="line">	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;			<span class="comment">//IRQ通道使能</span></span><br><span class="line">	NVIC_Init(&amp;NVIC_InitStructure);	<span class="comment">//根据指定的参数初始化VIC寄存器</span></span><br><span class="line">	TIM4_Init(<span class="number">999</span>,<span class="number">7199</span>);		<span class="comment">//10ms中断</span></span><br><span class="line">	USART2_RX_STA=<span class="number">0</span>;		<span class="comment">//清零</span></span><br><span class="line">	TIM4_Set(<span class="number">0</span>);			<span class="comment">//关闭定时器4</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure></p>
 <h2 id="因此以后一定要注意"><a href="#因此以后一定要注意" class="headerlink" title="因此以后一定要注意"></a>因此以后一定要注意</h2><h3 id="不写接收中断函数的串口就不要初始化使能接收中断！！！"><a href="#不写接收中断函数的串口就不要初始化使能接收中断！！！" class="headerlink" title="不写接收中断函数的串口就不要初始化使能接收中断！！！"></a>不写接收中断函数的串口就不要初始化使能接收中断！！！</h3>
       
 
