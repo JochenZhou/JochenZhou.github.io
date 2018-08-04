@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 随笔 | Pick Code</title>
+  <title>在CentOS 7上安装Homeassistant | Pick Code</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A amateur Blog.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Pick Code">
-<meta property="og:url" content="http://yoursite.com/tags/随笔/index.html">
+  <meta name="description" content="0x01 安装Python36我是以root用户登陆的,先按照hass.io的教程安装Python 3.612345678910#配置 SCL 源yum install centos-release-scl#安装稍后需要的依赖包yum install gcc gcc-c++ systemd-devel#安装Python 3.6yum install rh-python36#安装完成后使能Pytho">
+<meta name="keywords" content="HASS,CentOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在CentOS 7上安装Homeassistant">
+<meta property="og:url" content="http://yoursite.com/2018/08/04/在CentOS-7上安装Homeassistant/index.html">
 <meta property="og:site_name" content="Pick Code">
-<meta property="og:description" content="A amateur Blog.">
+<meta property="og:description" content="0x01 安装Python36我是以root用户登陆的,先按照hass.io的教程安装Python 3.612345678910#配置 SCL 源yum install centos-release-scl#安装稍后需要的依赖包yum install gcc gcc-c++ systemd-devel#安装Python 3.6yum install rh-python36#安装完成后使能Pytho">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://bbs.hassbian.com/data/attachment/forum/201807/24/230838dqkoc2ooo5rrcj27.png">
+<meta property="og:updated_time" content="2018-08-04T14:13:56.454Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pick Code">
-<meta name="twitter:description" content="A amateur Blog.">
+<meta name="twitter:title" content="在CentOS 7上安装Homeassistant">
+<meta name="twitter:description" content="0x01 安装Python36我是以root用户登陆的,先按照hass.io的教程安装Python 3.612345678910#配置 SCL 源yum install centos-release-scl#安装稍后需要的依赖包yum install gcc gcc-c++ systemd-devel#安装Python 3.6yum install rh-python36#安装完成后使能Pytho">
+<meta name="twitter:image" content="https://bbs.hassbian.com/data/attachment/forum/201807/24/230838dqkoc2ooo5rrcj27.png">
   
     <link rel="alternative" href="/atom.xml" title="Pick Code" type="application/atom+xml">
   
@@ -169,212 +173,222 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-在CentOS-7上安装Homeassistant" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      在CentOS 7上安装Homeassistant
+    </h1>
+  
+
+        
+        <a href="/2018/08/04/在CentOS-7上安装Homeassistant/" class="archive-article-date">
+  	<time datetime="2018-08-04T14:00:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-04</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="0x01-安装Python36"><a href="#0x01-安装Python36" class="headerlink" title="0x01 安装Python36"></a>0x01 安装Python36</h2><p>我是以root用户登陆的,先按照hass.io的教程安装Python 3.6<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#配置 SCL 源</span></span><br><span class="line">yum install centos-release-scl</span><br><span class="line"><span class="comment">#安装稍后需要的依赖包</span></span><br><span class="line">yum install gcc gcc-c++ systemd-devel</span><br><span class="line"><span class="comment">#安装Python 3.6</span></span><br><span class="line">yum install rh-python36</span><br><span class="line"><span class="comment">#安装完成后使能Python36</span></span><br><span class="line">scl <span class="built_in">enable</span> rh-python36 bash</span><br><span class="line"><span class="comment">#验证版本</span></span><br><span class="line">python --version</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="撸起袖子警告：切换国内源！我没切换，费了好大劲，怎么切换自己百度吧。"><a href="#撸起袖子警告：切换国内源！我没切换，费了好大劲，怎么切换自己百度吧。" class="headerlink" title="撸起袖子警告：切换国内源！我没切换，费了好大劲，怎么切换自己百度吧。"></a>撸起袖子警告：切换国内源！我没切换，费了好大劲，怎么切换自己百度吧。<a id="more"></a></h4><h2 id="0x02-Python虚拟环境安装Homeassistant"><a href="#0x02-Python虚拟环境安装Homeassistant" class="headerlink" title="0x02 Python虚拟环境安装Homeassistant"></a>0x02 Python虚拟环境安装Homeassistant</h2><p>然后就按照J大的<a href="https://bbs.hassbian.com/thread-27-1-1.html" target="_blank" rel="noopener">Ubuntu无坑版的教程</a>继续填坑就好了，直接复制了。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#添加一个名为homeassistant的用户</span></span><br><span class="line">useradd -rm homeassistant</span><br><span class="line"><span class="comment">#转到/srv目录，建立homeassistant文件夹</span></span><br><span class="line"><span class="built_in">cd</span> /srv</span><br><span class="line">sudo mkdir homeassistant</span><br><span class="line"></span><br><span class="line"><span class="comment">#更改此文件夹的所有者和所属组</span></span><br><span class="line">sudo chown homeassistant:homeassistant homeassistant</span><br><span class="line"></span><br><span class="line"><span class="comment">#更换用户</span></span><br><span class="line">sudo su -s /bin/bash homeassistant</span><br><span class="line"></span><br><span class="line"><span class="comment">#切换目录，创建并进入虚拟环境</span></span><br><span class="line"><span class="built_in">cd</span> /srv/homeassistant</span><br><span class="line">python3 -m venv homeassistant_venv</span><br><span class="line"><span class="built_in">source</span> /srv/homeassistant/homeassistant_venv/bin/activate</span><br><span class="line"></span><br><span class="line"><span class="comment">#虚拟环境下更新pip, setuptools（此步非常重要，否则安装HASS时会报错）</span></span><br><span class="line">pip install --upgrade pip</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装依赖netdisco和warrant（此步非常重要，否则安装完HASS会报discovery等错误）</span></span><br><span class="line">pip install netdisco</span><br><span class="line">pip install warrant</span><br><span class="line"></span><br><span class="line"><span class="comment">#正式安装HomeAssistant，速度会非常快</span></span><br><span class="line">pip install homeassistant</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装完毕，退出虚拟环境</span></span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#设置开机启动，建立service文件，将#中间的部分拷入，按ctrl + x, y 退出。</span></span><br><span class="line">sudo nano /etc/systemd/system/home-assistant@homeassistant.service</span><br><span class="line"></span><br><span class="line"><span class="comment">#########################################################################</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=Home Assistant</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">User=homeassistant</span><br><span class="line">Environment=PATH=<span class="string">"<span class="variable">$VIRTUAL_ENV</span>/bin:<span class="variable">$PATH</span>"</span></span><br><span class="line">ExecStart=/srv/homeassistant/homeassistant_venv/bin/hass -c <span class="string">"/home/homeassistant/.homeassistant"</span></span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line"><span class="comment">#########################################################################</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#更新系统设置</span></span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line"></span><br><span class="line"><span class="comment">#设置HomeAssistant开机启动</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> home-assistant@homeassistant.service</span><br><span class="line"></span><br><span class="line"><span class="comment">#启动HomeAssistant</span></span><br><span class="line">sudo systemctl start home-assistant@homeassistant.service</span><br><span class="line"></span><br><span class="line"><span class="comment">#重新启动HomeAssistant</span></span><br><span class="line">sudo systemctl restart home-assistant@homeassistant.service</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看HomeAssistant状态</span></span><br><span class="line">sudo systemctl status home-assistant@homeassistant.service</span><br></pre></td></tr></table></figure>
+<h2 id="0x03-填的坑："><a href="#0x03-填的坑：" class="headerlink" title="0x03 填的坑："></a>0x03 填的坑：</h2><ol>
+<li>如果提示安装失败，定位到失败的包的名字，用下面方式安装，比如netdisco安装失败：</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --index https://pypi.douban.com/simple netdisco</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>hass安装结束后启动打开网页竟是404 not found,然后查看启动log，有一些重要的组件没有被自动安装，那就手动安装好了，跟上面一样的，定位到初始化失败的组件名称，比如我的是这样，提示没有安装frontend <img src="https://bbs.hassbian.com/data/attachment/forum/201807/24/230838dqkoc2ooo5rrcj27.png" alt="image"><br>手动安装，下面代码，我又用的另一个源，都是百度copy的，哈哈哈</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --index [url]https://pypi.mirrors.ustc.edu.cn/simple/[/url] home-assistant-frontend</span><br></pre></td></tr></table></figure>
+<p>完整安装后就可以倒腾啦！<br>装了一段时间按了才整理这篇教程，有遗漏的地方自行百度，哈哈哈</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃水果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wepay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/28/借后感/" class="archive-article-date">
-  	<time datetime="2018-06-28T13:36:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/28/借后感/">借后感</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HASS</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/24/过好自己的生活/" class="archive-article-date">
-  	<time datetime="2018-06-24T07:36:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/24/过好自己的生活/">过好自己的生活</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">CentOS</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/04/在CentOS-7上安装Homeassistant/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/17/6月17日1点31想写东西有感/" class="archive-article-date">
-  	<time datetime="2018-06-16T17:33:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-17</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/06/28/借后感/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">借后感</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/17/6月17日1点31想写东西有感/">6月17日1点31想写东西有感</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01-安装Python36"><span class="toc-number">1.</span> <span class="toc-text">0x01 安装Python36</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#撸起袖子警告：切换国内源！我没切换，费了好大劲，怎么切换自己百度吧。"><span class="toc-number">1.0.1.</span> <span class="toc-text">撸起袖子警告：切换国内源！我没切换，费了好大劲，怎么切换自己百度吧。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x02-Python虚拟环境安装Homeassistant"><span class="toc-number">2.</span> <span class="toc-text">0x02 Python虚拟环境安装Homeassistant</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x03-填的坑："><span class="toc-number">3.</span> <span class="toc-text">0x03 填的坑：</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/14/第一篇/" class="archive-article-date">
-  	<time datetime="2018-06-14T04:33:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-14</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/14/第一篇/">第一篇随笔</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/14/第一篇 - 副本/" class="archive-article-date">
-  	<time datetime="2018-06-14T04:33:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/14/第一篇 - 副本/">第一篇随笔</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://yoursite.com/2018/08/04/在CentOS-7上安装Homeassistant/",
+  owner: 'jochenzhou',
+  repo: 'jochenzhou.github.io',
+  oauth: {
+    client_id: 'd56a48b19f96a2f65584',
+    client_secret: 'bb9e01d0dcb5ddfab18e5b025855f6d4cef1d2f5',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -407,9 +421,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
